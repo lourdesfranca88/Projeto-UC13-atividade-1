@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     textAlign: "right"
   },
   button: {
-    backgroundColor: 'white',
+    backgroundColor: 'indigo',
     alignItems: 'center',
     justifyContent: 'center',
     minWidth: 90, 
