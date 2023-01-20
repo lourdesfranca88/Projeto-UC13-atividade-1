@@ -24,10 +24,10 @@ export default function App() {
         setCurrentNumber((fistNumber - lastNumber).toString())
         return
       case 'x':
-        setCurrentNumber((fistNumber - lastNumber).toString())
+        setCurrentNumber((fistNumber * lastNumber).toString())
         return
       case '/':
-        setCurrentNumber((fistNumber - lastNumber).toString())
+        setCurrentNumber((fistNumber / lastNumber).toString())
         return
     }
   }
@@ -40,7 +40,7 @@ export default function App() {
     }
     switch (buttonPressed) {
       case 'DEL':
-        setCurrentNumber(currentNumber.substring(0, (currentNumber.length - 2)))
+        setCurrentNumber(currentNumber.substring(0, (currentNumber.length - 1)))
         return
       case 'LIMPAR': // Limpa todo o conteúdo
         setLastNumber("")
@@ -51,6 +51,7 @@ export default function App() {
         calculadora()
         return
       case '+/-':
+        currentNumber * -1
         return
 
     }
@@ -67,12 +68,12 @@ export default function App() {
       <View style={styles.buttons}> 
         {buttons.map((button) =>
           button === '=' ? // Mapeamento do botão =
-            <TouchableOpacity onPress={() => handleInput(button)} key={button} style={[styles.button, { backgroundColor: '#3dd0e3' }]}>
+            <TouchableOpacity onPress={() => handleInput(button)} key={button} style={[styles.button, { backgroundColor: '#222222' }]}>
               <Text style={[styles.textButton, { color: "white", fontSize: 30 }]}>{button}</Text>
             </TouchableOpacity>
             : // Mapeamento dos outros botões
             <TouchableOpacity onPress={() => handleInput(button)} key={button} style={styles.button}>
-            <Text style={[styles.textButton, {color: typeof(button) === 'number' ? 'black': '#0093a6'}]}>{button}</Text>
+            <Text style={[styles.textButton, {color: typeof(button) === 'number' ? 'white': '#5E5A88'}]}>{button}</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -91,17 +92,17 @@ const styles = StyleSheet.create({
   results: {
     flex: 2,
     justifyContent: "center",
-    backgroundColor: "#f5f5f5"
+    backgroundColor: "#222222"
   },
   resultText: {
-    color: "#282F38",
+    color: "white",
     fontSize: 32,
     fontWeight: "bold",
     padding: 12,
     textAlign: "right"
   },
   button: {
-    backgroundColor: 'white',
+    backgroundColor: 'indigo',
     alignItems: 'center',
     justifyContent: 'center',
     minWidth: 90, 
